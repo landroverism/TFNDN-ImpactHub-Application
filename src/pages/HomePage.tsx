@@ -59,7 +59,7 @@ export const HomePage: React.FC = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: `linear-gradient(135deg, rgba(15, 118, 110, 0.9) 0%, rgba(20, 184, 166, 0.9) 100%), url('/images/hero.jpeg')`,
+          background: `linear-gradient(135deg, rgba(15, 118, 110, 0.6) 0%, rgba(20, 184, 166, 0.6) 100%), url('/images/hero.jpeg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -87,7 +87,7 @@ export const HomePage: React.FC = () => {
                   sx={{ 
                     fontWeight: 'bold', 
                     mb: 3,
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                    textShadow: '2px 2px 6px rgba(0,0,0,0.7)',
                     fontFamily: '"Dancing Script", cursive',
                     fontSize: { xs: '2.5rem', md: '4rem' },
                   }}
@@ -96,7 +96,7 @@ export const HomePage: React.FC = () => {
                   <Box component="span" sx={{ 
                     color: 'secondary.main', 
                     display: 'block',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                    textShadow: '2px 2px 6px rgba(0,0,0,0.7)',
                   }}>
                     Innovation & Impact
                   </Box>
@@ -107,7 +107,7 @@ export const HomePage: React.FC = () => {
                     mb: 4, 
                     opacity: 0.95, 
                     lineHeight: 1.6,
-                    textShadow: '1px 1px 2px rgba(0,0,0,0.7)',
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.8)',
                     fontSize: { xs: '1.1rem', md: '1.3rem' },
                     fontWeight: 500,
                   }}
