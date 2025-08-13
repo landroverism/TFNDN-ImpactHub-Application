@@ -1,10 +1,10 @@
-# TFDN Impact Hub Application
+# Taji Fanisi Development Network
 
 A comprehensive web platform for the Taji Fanisi Development Network, designed to transform Africa through innovation and impact by connecting education, career development, and social innovation initiatives.
 
 ## 🎯 Project Overview
 
-The TFDN Impact Hub is a modern web application that serves as a digital platform for:
+The Taji Fanisi Development Network is a modern web application that serves as a digital platform for:
 - **Education & Career Development**: AI-powered career guidance and educational resources
 - **Social Innovation**: Showcasing impact stories and development frameworks
 - **Community Building**: Connecting partners and stakeholders across Africa

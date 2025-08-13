@@ -18,12 +18,12 @@ export const Footer: React.FC = () => {
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
               <Avatar 
-                src="/images/tfndn.png" 
-                alt="TFDN Logo" 
-                sx={{ width: 48, height: 48 }}
+                src="/images/tfdn-logo.png" 
+                alt="Taji Fanisi Development Network Logo" 
+                sx={{ width: 64, height: 64 }}
               />
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                TFDN Impact Hub
+                Taji Fanisi Development Network
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ mb: 2, opacity: 0.9 }}>
@@ -104,9 +104,9 @@ export const Footer: React.FC = () => {
         <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.2)', mt: 4, pt: 3, textAlign: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
             <Avatar 
-              src="/images/tfndn.png" 
-              alt="TFDN Logo" 
-              sx={{ width: 32, height: 32 }}
+              src="/images/tfdn-logo.png" 
+              alt="Taji Fanisi Development Network Logo" 
+              sx={{ width: 40, height: 40 }}
             />
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
               © 2024 Taji Fanisi Development Network. All rights reserved.

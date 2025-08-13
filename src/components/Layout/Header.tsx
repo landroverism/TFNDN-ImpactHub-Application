@@ -43,12 +43,12 @@ export const Header: React.FC = () => {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Avatar 
-            src="/images/tfndn.png" 
-            alt="TFDN Logo" 
-            sx={{ width: 32, height: 32 }}
+            src="/images/tfdn-logo.png" 
+            alt="Taji Fanisi Development Network Logo" 
+            sx={{ width: 48, height: 48 }}
           />
           <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
-            TFDN
+            Taji Fanisi Development Network
           </Typography>
         </Box>
         <IconButton onClick={handleDrawerToggle}>
@@ -85,9 +85,9 @@ export const Header: React.FC = () => {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Avatar 
-              src="/images/tfndn.png" 
-              alt="TFDN Logo" 
-              sx={{ width: 40, height: 40 }}
+              src="/images/tfdn-logo.png" 
+              alt="Taji Fanisi Development Network Logo" 
+              sx={{ width: 56, height: 56 }}
             />
             <Typography 
               variant="h6" 
@@ -100,7 +100,7 @@ export const Header: React.FC = () => {
                 fontSize: '1.5rem',
               }}
             >
-              TFDN Impact Hub
+              Taji Fanisi Development Network
             </Typography>
           </Box>
 
