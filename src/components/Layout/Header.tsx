@@ -50,17 +50,15 @@ export const Header: React.FC = () => {
           <Typography 
             variant="h6" 
             sx={{ 
-              color: 'primary.main', 
+              color: '#22C55E',
               fontWeight: 'bold',
               fontFamily: '"Dancing Script", cursive',
-              fontSize: '1.4rem',
-              background: 'linear-gradient(135deg, #0F766E 0%, #14B8A6 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              fontSize: '1.8rem',
+              textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+              letterSpacing: '1px',
             }}
           >
-            Taji Fanisi Development Network
+            TFDN
           </Typography>
         </Box>
         <IconButton onClick={handleDrawerToggle}>
@@ -106,24 +104,21 @@ export const Header: React.FC = () => {
               component={Link} 
               to="/"
               sx={{ 
-                color: 'primary.main', 
+                color: '#22C55E',
                 fontWeight: 'bold',
                 textDecoration: 'none',
-                fontSize: '1.8rem',
+                fontSize: '2.2rem',
                 fontFamily: '"Dancing Script", cursive',
-                background: 'linear-gradient(135deg, #0F766E 0%, #14B8A6 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                letterSpacing: '0.5px',
+                textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                letterSpacing: '1px',
                 '&:hover': {
-                  transform: 'scale(1.02)',
+                  transform: 'scale(1.05)',
                   transition: 'transform 0.2s ease-in-out',
+                  color: '#16A34A',
                 }
               }}
             >
-              Taji Fanisi Development Network
+              TFDN
             </Typography>
           </Box>
 
