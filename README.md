@@ -186,8 +186,35 @@ npx convex deploy
 ```
 
 ### Environment Variables
-- `VITE_CONVEX_URL`: Your Convex deployment URL
-- Add other environment variables as needed
+
+The project requires several environment variables to connect to Convex. You can set these up in two ways:
+
+#### Option 1: Copy from .env.example (Recommended)
+```bash
+cp .env.example .env.local
+```
+Then edit `.env.local` with your actual Convex deployment values.
+
+#### Option 2: Create .env.local manually
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# Convex deployment key (for backend operations)
+CONVEX_DEPLOY_KEY=project:ireporter96:my-project-chef-8af6c|eyJ2MiI6IjI3NDdjMzY4ZDg1NDQxYjI5YTZlZjUwOTk1YzlhNGI2In0=
+
+# Convex deployment identifier (used by `npx convex dev`)
+CONVEX_DEPLOYMENT=dev:notable-kudu-608
+
+# Frontend Convex URL (used by Vite)
+VITE_CONVEX_URL=https://notable-kudu-608.convex.cloud
+```
+
+**Important Notes:**
+- The `CONVEX_DEPLOY_KEY` is used for backend operations and deployments
+- The `CONVEX_DEPLOYMENT` specifies which Convex deployment to use
+- The `VITE_CONVEX_URL` is used by the frontend to connect to the Convex backend
+- Keep your `.env.local` file secure and never commit it to version control
+- The `.env.example` file is provided as a template for new developers
 
 ## 🤝 Contributing
 
