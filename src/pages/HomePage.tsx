@@ -59,15 +59,21 @@ export const HomePage: React.FC = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #0F766E 0%, #14B8A6 100%)',
+          background: `linear-gradient(135deg, rgba(15, 118, 110, 0.9) 0%, rgba(20, 184, 166, 0.9) 100%), url('/images/hero.jpeg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           color: 'white',
           py: { xs: 8, md: 12 },
           position: 'relative',
           overflow: 'hidden',
+          minHeight: '80vh',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
-        <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="center">
+        <Container maxWidth="lg" sx={{ height: '100%' }}>
+          <Grid container spacing={4} alignItems="center" sx={{ minHeight: '70vh' }}>
             <Grid item xs={12} md={6}>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -78,14 +84,34 @@ export const HomePage: React.FC = () => {
                   variant={isMobile ? 'h3' : 'h1'}
                   component="h1"
                   gutterBottom
-                  sx={{ fontWeight: 'bold', mb: 3 }}
+                  sx={{ 
+                    fontWeight: 'bold', 
+                    mb: 3,
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                    fontFamily: '"Dancing Script", cursive',
+                    fontSize: { xs: '2.5rem', md: '4rem' },
+                  }}
                 >
                   Transforming Africa Through
-                  <Box component="span" sx={{ color: 'secondary.main', display: 'block' }}>
+                  <Box component="span" sx={{ 
+                    color: 'secondary.main', 
+                    display: 'block',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                  }}>
                     Innovation & Impact
                   </Box>
                 </Typography>
-                <Typography variant="h6" sx={{ mb: 4, opacity: 0.9, lineHeight: 1.6 }}>
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    mb: 4, 
+                    opacity: 0.95, 
+                    lineHeight: 1.6,
+                    textShadow: '1px 1px 2px rgba(0,0,0,0.7)',
+                    fontSize: { xs: '1.1rem', md: '1.3rem' },
+                    fontWeight: 500,
+                  }}
+                >
                   The Taji Fanisi Development Network connects education, career development, 
                   and social innovation to create lasting change across Africa.
                 </Typography>
@@ -100,6 +126,9 @@ export const HomePage: React.FC = () => {
                         '&:hover': { backgroundColor: 'secondary.dark' },
                         px: 4,
                         py: 1.5,
+                        boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                        fontWeight: 'bold',
+                        fontSize: '1.1rem',
                       }}
                     >
                       Explore Framework
@@ -117,6 +146,10 @@ export const HomePage: React.FC = () => {
                         },
                         px: 4,
                         py: 1.5,
+                        boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                        fontWeight: 'bold',
+                        fontSize: '1.1rem',
+                        borderWidth: '2px',
                       }}
                     >
                       Try AI Career Demo
