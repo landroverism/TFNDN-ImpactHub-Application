@@ -47,7 +47,19 @@ export const Header: React.FC = () => {
             alt="Taji Fanisi Development Network Logo" 
             sx={{ width: 48, height: 48 }}
           />
-          <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              color: 'primary.main', 
+              fontWeight: 'bold',
+              fontFamily: '"Dancing Script", cursive',
+              fontSize: '1.4rem',
+              background: 'linear-gradient(135deg, #0F766E 0%, #14B8A6 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
             Taji Fanisi Development Network
           </Typography>
         </Box>
@@ -97,7 +109,18 @@ export const Header: React.FC = () => {
                 color: 'primary.main', 
                 fontWeight: 'bold',
                 textDecoration: 'none',
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
+                fontFamily: '"Dancing Script", cursive',
+                background: 'linear-gradient(135deg, #0F766E 0%, #14B8A6 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                letterSpacing: '0.5px',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                  transition: 'transform 0.2s ease-in-out',
+                }
               }}
             >
               Taji Fanisi Development Network

@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Handwriting font styles */
+.handwriting-title {
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;
+}
+
 :root {
   --color-light: #ffffff;
   --color-dark: #171717;
