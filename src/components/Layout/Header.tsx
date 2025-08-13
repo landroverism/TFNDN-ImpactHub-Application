@@ -12,6 +12,7 @@ import {
   Box,
   useMediaQuery,
   useTheme,
+  Avatar,
 } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
@@ -40,9 +41,16 @@ export const Header: React.FC = () => {
   const drawer = (
     <Box sx={{ width: 250 }} role="presentation">
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-        <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
-          TFDN
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Avatar 
+            src="/images/tfndn.png" 
+            alt="TFDN Logo" 
+            sx={{ width: 32, height: 32 }}
+          />
+          <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+            TFDN
+          </Typography>
+        </Box>
         <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
         </IconButton>
@@ -75,19 +83,26 @@ export const Header: React.FC = () => {
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography 
-            variant="h6" 
-            component={Link} 
-            to="/"
-            sx={{ 
-              color: 'primary.main', 
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              fontSize: '1.5rem',
-            }}
-          >
-            TFDN Impact Hub
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Avatar 
+              src="/images/tfndn.png" 
+              alt="TFDN Logo" 
+              sx={{ width: 40, height: 40 }}
+            />
+            <Typography 
+              variant="h6" 
+              component={Link} 
+              to="/"
+              sx={{ 
+                color: 'primary.main', 
+                fontWeight: 'bold',
+                textDecoration: 'none',
+                fontSize: '1.5rem',
+              }}
+            >
+              TFDN Impact Hub
+            </Typography>
+          </Box>
 
           {isMobile ? (
             <IconButton

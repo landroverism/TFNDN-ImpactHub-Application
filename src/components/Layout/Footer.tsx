@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Link, IconButton } from '@mui/material';
+import { Box, Container, Typography, Grid, Link, IconButton, Avatar } from '@mui/material';
 import { Facebook, Twitter, LinkedIn, Instagram } from '@mui/icons-material';
 
 export const Footer: React.FC = () => {
@@ -16,9 +16,16 @@ export const Footer: React.FC = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-              TFDN Impact Hub
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+              <Avatar 
+                src="/images/tfndn.png" 
+                alt="TFDN Logo" 
+                sx={{ width: 48, height: 48 }}
+              />
+              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                TFDN Impact Hub
+              </Typography>
+            </Box>
             <Typography variant="body2" sx={{ mb: 2, opacity: 0.9 }}>
               Transforming lives through education, career development, and social innovation across Africa.
             </Typography>
@@ -95,9 +102,16 @@ export const Footer: React.FC = () => {
         </Grid>
         
         <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.2)', mt: 4, pt: 3, textAlign: 'center' }}>
-          <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            © 2024 Taji Fanisi Development Network. All rights reserved.
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
+            <Avatar 
+              src="/images/tfndn.png" 
+              alt="TFDN Logo" 
+              sx={{ width: 32, height: 32 }}
+            />
+            <Typography variant="body2" sx={{ opacity: 0.8 }}>
+              © 2024 Taji Fanisi Development Network. All rights reserved.
+            </Typography>
+          </Box>
         </Box>
       </Container>
     </Box>
