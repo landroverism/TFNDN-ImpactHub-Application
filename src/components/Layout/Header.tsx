@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Avatar 
-            src="/images/tfdn-logo.png" 
+            src="/images/zoomed-logo.png" 
             alt="Taji Fanisi Development Network Logo" 
             sx={{ width: 48, height: 48 }}
           />
@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Avatar 
-              src="/images/tfdn-logo.png" 
+              src="/images/zoomed-logo.png" 
               alt="Taji Fanisi Development Network Logo" 
               sx={{ width: 56, height: 56 }}
             />

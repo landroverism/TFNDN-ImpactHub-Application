@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
               <Avatar 
-                src="/images/tfdn-logo.png" 
+                src="/images/zoomed-logo.png" 
                 alt="Taji Fanisi Development Network Logo" 
                 sx={{ width: 64, height: 64 }}
               />
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
         <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.2)', mt: 4, pt: 3, textAlign: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
             <Avatar 
-              src="/images/tfdn-logo.png" 
+              src="/images/zoomed-logo.png" 
               alt="Taji Fanisi Development Network Logo" 
               sx={{ width: 40, height: 40 }}
             />
