@@ -1,0 +1,144 @@
+import React, { useState } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Box,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import { Link, useLocation } from 'react-router-dom';
+import { Authenticated, Unauthenticated } from 'convex/react';
+import { SignOutButton } from '../../SignOutButton';
+
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Framework', path: '/framework' },
+  { label: 'AI Career Demo', path: '/ai-career' },
+  { label: 'Research', path: '/research' },
+  { label: 'Partners', path: '/partners' },
+  { label: 'Get Involved', path: '/get-involved' },
+];
+
+export const Header: React.FC = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const location = useLocation();
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <Box sx={{ width: 250 }} role="presentation">
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
+        <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+          TFDN
+        </Typography>
+        <IconButton onClick={handleDrawerToggle}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.path} component={Link} to={item.path} onClick={handleDrawerToggle}>
+            <ListItemText 
+              primary={item.label}
+              sx={{
+                color: location.pathname === item.path ? 'primary.main' : 'text.primary',
+                fontWeight: location.pathname === item.path ? 600 : 400,
+              }}
+            />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  return (
+    <>
+      <AppBar 
+        position="sticky" 
+        sx={{ 
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)',
+          color: 'text.primary',
+        }}
+      >
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Typography 
+            variant="h6" 
+            component={Link} 
+            to="/"
+            sx={{ 
+              color: 'primary.main', 
+              fontWeight: 'bold',
+              textDecoration: 'none',
+              fontSize: '1.5rem',
+            }}
+          >
+            TFDN Impact Hub
+          </Typography>
+
+          {isMobile ? (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              {navItems.map((item) => (
+                <Button
+                  key={item.path}
+                  component={Link}
+                  to={item.path}
+                  sx={{
+                    color: location.pathname === item.path ? 'primary.main' : 'text.primary',
+                    fontWeight: location.pathname === item.path ? 600 : 400,
+                    '&:hover': {
+                      backgroundColor: 'primary.light',
+                      color: 'white',
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
+              <Authenticated>
+                <SignOutButton />
+              </Authenticated>
+            </Box>
+          )}
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 250 },
+        }}
+      >
+        {drawer}
+      </Drawer>
+    </>
+  );
+};

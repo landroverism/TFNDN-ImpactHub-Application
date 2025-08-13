@@ -1,0 +1,485 @@
+{
+  "pillars": [
+    {
+      "id": "education",
+      "title": "Education & Leadership",
+      "summary": "Transform education through innovative programs that build leadership capacity and global citizenship.",
+      "description": "Our education pillar focuses on developing transformative learning experiences that prepare young people for the challenges of the 21st century. Through innovative curricula, leadership development programs, and global citizenship education, we're building a generation of change-makers.",
+      "programs": [
+        {
+          "id": "career-guidance",
+          "title": "AI-Driven Career Guidance",
+          "summary": "Personalized career coaching using artificial intelligence to match skills with opportunities.",
+          "impact": "5,000+ students guided annually"
+        },
+        {
+          "id": "gced",
+          "title": "Global Citizenship Education",
+          "summary": "Social-emotional learning and global citizenship clubs in schools.",
+          "impact": "200+ schools participating"
+        },
+        {
+          "id": "leadership-dev",
+          "title": "Youth Leadership Development",
+          "summary": "Comprehensive leadership training programs for emerging leaders.",
+          "impact": "1,000+ youth leaders trained"
+        }
+      ],
+      "color": "#0F766E"
+    },
+    {
+      "id": "career",
+      "title": "Career Development",
+      "summary": "AI-driven workforce development connecting talent with global opportunities.",
+      "description": "We're revolutionizing career development through technology-enabled training programs, virtual assistance certification, and AI-powered job matching that connects African talent with global opportunities.",
+      "programs": [
+        {
+          "id": "va-training",
+          "title": "Virtual Assistance Training",
+          "summary": "Comprehensive remote work skills training for the digital economy.",
+          "impact": "3,000+ VAs certified"
+        },
+        {
+          "id": "skills-matching",
+          "title": "AI Skills Matching",
+          "summary": "Machine learning algorithms that match candidates with optimal career paths.",
+          "impact": "85% placement rate"
+        },
+        {
+          "id": "entrepreneurship",
+          "title": "Entrepreneurship Support",
+          "summary": "Incubation and mentorship for social entrepreneurs.",
+          "impact": "500+ startups supported"
+        }
+      ],
+      "color": "#F59E0B"
+    },
+    {
+      "id": "social",
+      "title": "Social Innovation & Policy",
+      "summary": "Addressing health, climate justice, and systemic challenges through innovative solutions.",
+      "description": "Our social innovation pillar tackles complex societal challenges through evidence-based interventions, policy advocacy, and community-driven solutions that create lasting impact.",
+      "programs": [
+        {
+          "id": "mental-health",
+          "title": "Mental Health Initiative",
+          "summary": "Psychosocial support and mental health awareness programs.",
+          "impact": "10,000+ individuals reached"
+        },
+        {
+          "id": "climate-justice",
+          "title": "Climate Justice Program",
+          "summary": "Environmental advocacy and climate adaptation initiatives.",
+          "impact": "50+ communities engaged"
+        },
+        {
+          "id": "policy-advocacy",
+          "title": "Policy Advocacy",
+          "summary": "Research-driven policy recommendations for systemic change.",
+          "impact": "15+ policy briefs published"
+        }
+      ],
+      "color": "#84CC16"
+    },
+    {
+      "id": "research",
+      "title": "Research & AI",
+      "summary": "Smart monitoring, evaluation, and learning through advanced analytics and AI.",
+      "description": "We leverage cutting-edge research methodologies and artificial intelligence to generate insights that drive evidence-based decision making and continuous improvement across all our programs.",
+      "programs": [
+        {
+          "id": "workforce-analytics",
+          "title": "Workforce Analytics",
+          "summary": "AI-powered labor market insights and trend analysis.",
+          "impact": "Real-time market intelligence"
+        },
+        {
+          "id": "impact-measurement",
+          "title": "Smart MEL Systems",
+          "summary": "Advanced monitoring, evaluation, and learning frameworks.",
+          "impact": "100% program coverage"
+        },
+        {
+          "id": "research-innovation",
+          "title": "Research Innovation Lab",
+          "summary": "Cutting-edge research on development challenges and solutions.",
+          "impact": "25+ research publications"
+        }
+      ],
+      "color": "#8B5CF6"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 2025,
+      "events": [
+        {
+          "title": "Platform MVP Launch",
+          "desc": "Launch AI career guidance platform with initial 1,000 users"
+        },
+        {
+          "title": "Partnership Expansion",
+          "desc": "Establish partnerships with 50+ educational institutions"
+        },
+        {
+          "title": "Research Foundation",
+          "desc": "Complete baseline studies and establish MEL framework"
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "events": [
+        {
+          "title": "Scale Operations",
+          "desc": "Expand to 10,000+ active users across all programs"
+        },
+        {
+          "title": "AI Enhancement",
+          "desc": "Deploy advanced ML models for career matching"
+        },
+        {
+          "title": "Policy Impact",
+          "desc": "Influence 5+ major policy initiatives"
+        }
+      ]
+    },
+    {
+      "year": 2027,
+      "events": [
+        {
+          "title": "Regional Expansion",
+          "desc": "Launch operations in 3 additional African countries"
+        },
+        {
+          "title": "Innovation Hub",
+          "desc": "Establish physical innovation centers in key cities"
+        },
+        {
+          "title": "Research Excellence",
+          "desc": "Publish 10+ peer-reviewed research papers"
+        }
+      ]
+    },
+    {
+      "year": 2028,
+      "events": [
+        {
+          "title": "Global Recognition",
+          "desc": "Achieve international recognition as leading development network"
+        },
+        {
+          "title": "Sustainability Milestone",
+          "desc": "Achieve 80% financial sustainability through earned revenue"
+        },
+        {
+          "title": "Technology Leadership",
+          "desc": "Launch open-source AI tools for development sector"
+        }
+      ]
+    },
+    {
+      "year": 2029,
+      "events": [
+        {
+          "title": "Continental Impact",
+          "desc": "Active in 10+ African countries with 100,000+ beneficiaries"
+        },
+        {
+          "title": "Innovation Ecosystem",
+          "desc": "Support 1,000+ social enterprises and startups"
+        },
+        {
+          "title": "Knowledge Hub",
+          "desc": "Become leading source of development research and insights"
+        }
+      ]
+    },
+    {
+      "year": 2030,
+      "events": [
+        {
+          "title": "Vision Realized",
+          "desc": "Achieve full strategic framework implementation"
+        },
+        {
+          "title": "Legacy Foundation",
+          "desc": "Establish endowment for long-term sustainability"
+        },
+        {
+          "title": "Global Model",
+          "desc": "Framework adopted by development organizations worldwide"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "1",
+      "title": "Remote Virtual Assistant - Administrative",
+      "type": "Virtual Assistant",
+      "skills": ["Communication", "MS Office", "Time Management", "Customer Service"],
+      "location": "Remote",
+      "salary": "$800-1200/month",
+      "link": "#",
+      "description": "Support international clients with administrative tasks, email management, and scheduling."
+    },
+    {
+      "id": "2",
+      "title": "Digital Marketing Specialist",
+      "type": "Marketing",
+      "skills": ["Social Media", "Content Creation", "Analytics", "SEO"],
+      "location": "Remote",
+      "salary": "$1000-1500/month",
+      "link": "#",
+      "description": "Create and manage digital marketing campaigns for global brands."
+    },
+    {
+      "id": "3",
+      "title": "Data Entry Specialist",
+      "type": "Data",
+      "skills": ["Attention to Detail", "Excel", "Data Processing", "Quality Control"],
+      "location": "Remote",
+      "salary": "$600-900/month",
+      "link": "#",
+      "description": "Process and manage data for international research projects."
+    },
+    {
+      "id": "4",
+      "title": "Customer Support Representative",
+      "type": "Support",
+      "skills": ["Communication", "Problem Solving", "Empathy", "Multi-tasking"],
+      "location": "Remote",
+      "salary": "$700-1100/month",
+      "link": "#",
+      "description": "Provide excellent customer service to global client base."
+    },
+    {
+      "id": "5",
+      "title": "Content Writer",
+      "type": "Writing",
+      "skills": ["Writing", "Research", "SEO", "Content Strategy"],
+      "location": "Remote",
+      "salary": "$900-1400/month",
+      "link": "#",
+      "description": "Create engaging content for websites, blogs, and marketing materials."
+    },
+    {
+      "id": "6",
+      "title": "Graphic Designer",
+      "type": "Design",
+      "skills": ["Adobe Creative Suite", "Design Thinking", "Branding", "Visual Communication"],
+      "location": "Remote",
+      "salary": "$1100-1600/month",
+      "link": "#",
+      "description": "Design visual content for digital and print media."
+    }
+  ],
+  "partners": [
+    {
+      "id": "unesco",
+      "name": "UNESCO",
+      "logoUrl": "/logos/unesco.svg",
+      "description": "Global education and cultural development partner"
+    },
+    {
+      "id": "african-union",
+      "name": "African Union",
+      "logoUrl": "/logos/au.svg",
+      "description": "Continental policy and development coordination"
+    },
+    {
+      "id": "world-bank",
+      "name": "World Bank",
+      "logoUrl": "/logos/worldbank.svg",
+      "description": "Financial and technical development support"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "logoUrl": "/logos/microsoft.svg",
+      "description": "Technology and AI development partner"
+    }
+  ],
+  "impactStories": [
+    {
+      "id": "1",
+      "title": "From Student to Global VA",
+      "body": "Sarah transformed her life through our VA training program, now earning $1,200/month working with international clients while supporting her family and community.",
+      "imageUrl": "/images/story1.jpg",
+      "category": "Career Success"
+    },
+    {
+      "id": "2",
+      "title": "Climate Action in Rural Communities",
+      "body": "Our climate justice program helped 15 rural communities implement sustainable farming practices, increasing crop yields by 40% while reducing environmental impact.",
+      "imageUrl": "/images/story2.jpg",
+      "category": "Environmental Impact"
+    },
+    {
+      "id": "3",
+      "title": "Mental Health Breakthrough",
+      "body": "Through our mental health initiative, we've trained 200+ community health workers, reaching over 10,000 individuals with psychosocial support services.",
+      "imageUrl": "/images/story3.jpg",
+      "category": "Health & Wellbeing"
+    }
+  ],
+  "stats": [
+    {
+      "label": "Lives Impacted",
+      "value": 25000,
+      "suffix": "+",
+      "icon": "people"
+    },
+    {
+      "label": "Countries Active",
+      "value": 8,
+      "suffix": "",
+      "icon": "public"
+    },
+    {
+      "label": "Programs Running",
+      "value": 15,
+      "suffix": "+",
+      "icon": "school"
+    },
+    {
+      "label": "Success Rate",
+      "value": 85,
+      "suffix": "%",
+      "icon": "trending_up"
+    }
+  ],
+  "careerQuestions": [
+    {
+      "id": "1",
+      "question": "What type of work environment do you prefer?",
+      "options": [
+        { "id": "remote", "text": "Remote/Virtual", "weight": { "va": 3, "marketing": 2, "support": 2 } },
+        { "id": "hybrid", "text": "Hybrid", "weight": { "design": 2, "writing": 2 } },
+        { "id": "office", "text": "Traditional Office", "weight": { "data": 1 } }
+      ]
+    },
+    {
+      "id": "2",
+      "question": "Which skills do you want to develop most?",
+      "options": [
+        { "id": "tech", "text": "Technical Skills", "weight": { "data": 3, "design": 2 } },
+        { "id": "communication", "text": "Communication", "weight": { "va": 3, "support": 3, "writing": 2 } },
+        { "id": "creative", "text": "Creative Skills", "weight": { "design": 3, "marketing": 2, "writing": 2 } },
+        { "id": "analytical", "text": "Analytical Skills", "weight": { "data": 3, "marketing": 1 } }
+      ]
+    },
+    {
+      "id": "3",
+      "question": "What motivates you most in work?",
+      "options": [
+        { "id": "helping", "text": "Helping Others", "weight": { "support": 3, "va": 2 } },
+        { "id": "creating", "text": "Creating Something New", "weight": { "design": 3, "writing": 3, "marketing": 2 } },
+        { "id": "solving", "text": "Solving Problems", "weight": { "data": 3, "support": 2 } },
+        { "id": "organizing", "text": "Organizing & Managing", "weight": { "va": 3, "data": 2 } }
+      ]
+    },
+    {
+      "id": "4",
+      "question": "How do you prefer to learn new skills?",
+      "options": [
+        { "id": "hands-on", "text": "Hands-on Practice", "weight": { "design": 2, "data": 2 } },
+        { "id": "structured", "text": "Structured Courses", "weight": { "va": 2, "support": 2 } },
+        { "id": "self-directed", "text": "Self-Directed Learning", "weight": { "writing": 3, "marketing": 2 } },
+        { "id": "mentorship", "text": "Mentorship & Guidance", "weight": { "va": 1, "support": 1 } }
+      ]
+    }
+  ],
+  "trainingModules": [
+    {
+      "id": "va-fundamentals",
+      "title": "Virtual Assistant Fundamentals",
+      "duration": "4 weeks",
+      "description": "Master the core skills needed for virtual assistance work",
+      "skills": ["Communication", "Time Management", "MS Office", "Client Relations"]
+    },
+    {
+      "id": "digital-marketing",
+      "title": "Digital Marketing Mastery",
+      "duration": "6 weeks",
+      "description": "Learn social media marketing, content creation, and analytics",
+      "skills": ["Social Media", "Content Creation", "Analytics", "SEO"]
+    },
+    {
+      "id": "data-analysis",
+      "title": "Data Analysis & Excel",
+      "duration": "5 weeks",
+      "description": "Advanced Excel skills and data analysis techniques",
+      "skills": ["Excel", "Data Analysis", "Visualization", "Reporting"]
+    },
+    {
+      "id": "customer-service",
+      "title": "Customer Service Excellence",
+      "duration": "3 weeks",
+      "description": "Professional customer service and support skills",
+      "skills": ["Communication", "Problem Solving", "Empathy", "Conflict Resolution"]
+    },
+    {
+      "id": "creative-design",
+      "title": "Creative Design Basics",
+      "duration": "8 weeks",
+      "description": "Graphic design principles and digital tools",
+      "skills": ["Design Principles", "Adobe Creative Suite", "Branding", "Visual Communication"]
+    },
+    {
+      "id": "content-writing",
+      "title": "Professional Writing",
+      "duration": "4 weeks",
+      "description": "Business writing, content creation, and copywriting",
+      "skills": ["Writing", "Research", "SEO", "Content Strategy"]
+    }
+  ],
+  "scholarships": [
+    {
+      "id": "1",
+      "title": "TFDN Career Accelerator Scholarship",
+      "amount": "$500",
+      "description": "Full scholarship for career development programs",
+      "eligibility": "African youth aged 18-30"
+    },
+    {
+      "id": "2",
+      "title": "Women in Tech Scholarship",
+      "amount": "$750",
+      "description": "Supporting women entering technology careers",
+      "eligibility": "Women interested in tech careers"
+    },
+    {
+      "id": "3",
+      "title": "Rural Development Scholarship",
+      "amount": "$400",
+      "description": "For participants from rural communities",
+      "eligibility": "Rural community members"
+    }
+  ],
+  "chartData": {
+    "vaPlacementTrend": [
+      { "year": "2020", "placements": 150, "retention": 75 },
+      { "year": "2021", "placements": 320, "retention": 78 },
+      { "year": "2022", "placements": 580, "retention": 82 },
+      { "year": "2023", "placements": 920, "retention": 85 },
+      { "year": "2024", "placements": 1450, "retention": 88 }
+    ],
+    "skillsDemand": [
+      { "skill": "Virtual Assistance", "demand": 85, "growth": 15 },
+      { "skill": "Digital Marketing", "demand": 78, "growth": 22 },
+      { "skill": "Data Analysis", "demand": 72, "growth": 18 },
+      { "skill": "Customer Support", "demand": 68, "growth": 12 },
+      { "skill": "Content Writing", "demand": 65, "growth": 20 },
+      { "skill": "Graphic Design", "demand": 58, "growth": 16 }
+    ],
+    "programReach": [
+      { "program": "Career Guidance", "participants": 5000, "completion": 92 },
+      { "program": "VA Training", "participants": 3000, "completion": 88 },
+      { "program": "Mental Health", "participants": 10000, "completion": 85 },
+      { "program": "Climate Justice", "participants": 2500, "completion": 90 },
+      { "program": "Leadership Dev", "participants": 1000, "completion": 95 }
+    ]
+  }
+}
