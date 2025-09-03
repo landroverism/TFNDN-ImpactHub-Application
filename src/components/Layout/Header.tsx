@@ -7,16 +7,16 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
   Box,
   useMediaQuery,
   useTheme,
   Avatar,
 } from '@mui/material';
-import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import { Menu as MenuIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
-import { Authenticated, Unauthenticated } from 'convex/react';
+import { Authenticated } from 'convex/react';
 import { SignOutButton } from '../../SignOutButton';
 
 const navItems = [
@@ -39,94 +39,61 @@ export const Header: React.FC = () => {
   };
 
   const drawer = (
-    <Box sx={{ width: 250 }} role="presentation">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Avatar 
-            src="/images/zoomed-logo.png" 
-            alt="Taji Fanisi Development Network Logo" 
-            sx={{ width: 48, height: 48 }}
-          />
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: '#22C55E',
-              fontWeight: 'bold',
-              fontFamily: '"Dancing Script", cursive',
-              fontSize: '1.8rem',
-              textShadow: '0 2px 4px rgba(0,0,0,0.2)',
-              letterSpacing: '1px',
-            }}
-          >
-            TFDN
-          </Typography>
-        </Box>
-        <IconButton onClick={handleDrawerToggle}>
-          <CloseIcon />
-        </IconButton>
+    <Box sx={{ width: 250 }} role="presentation" onClick={handleDrawerToggle}>
+      <Box sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Avatar src="/images/zoomed-logo.png" alt="Taji Fanisi Logo" />
+        <Typography variant="h6" sx={{ color: 'primary.main' }}>
+          TFDN
+        </Typography>
       </Box>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.path} component={Link} to={item.path} onClick={handleDrawerToggle}>
-            <ListItemText 
-              primary={item.label}
-              sx={{
-                color: location.pathname === item.path ? 'primary.main' : 'text.primary',
-                fontWeight: location.pathname === item.path ? 600 : 400,
-              }}
-            />
-          </ListItem>
+          <ListItemButton
+            key={item.path}
+            component={Link}
+            to={item.path}
+            selected={location.pathname === item.path}
+          >
+            <ListItemText primary={item.label} />
+          </ListItemButton>
         ))}
+        <Box sx={{ p: 2 }}>
+          <Authenticated>
+            <SignOutButton />
+          </Authenticated>
+        </Box>
       </List>
     </Box>
   );
 
   return (
     <>
-      <AppBar 
-        position="sticky" 
+      <AppBar
+        position="sticky"
+        color="default"
+        elevation={0}
         sx={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)',
-          color: 'text.primary',
+          backgroundColor: 'background.paper',
+          borderBottom: `1px solid ${theme.palette.divider}`
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Avatar 
-              src="/images/zoomed-logo.png" 
-              alt="Taji Fanisi Development Network Logo" 
-              sx={{ width: 56, height: 56 }}
-            />
-            <Typography 
-              variant="h6" 
-              component={Link} 
-              to="/"
-              sx={{ 
-                color: '#22C55E',
-                fontWeight: 'bold',
-                textDecoration: 'none',
-                fontSize: '2.2rem',
-                fontFamily: '"Dancing Script", cursive',
-                textShadow: '0 2px 4px rgba(0,0,0,0.2)',
-                letterSpacing: '1px',
-                '&:hover': {
-                  transform: 'scale(1.05)',
-                  transition: 'transform 0.2s ease-in-out',
-                  color: '#16A34A',
-                }
-              }}
-            >
+          <Box
+            component={Link}
+            to="/"
+            sx={{ display: 'flex', alignItems: 'center', gap: 2, textDecoration: 'none' }}
+          >
+            <Avatar src="/images/zoomed-logo.png" alt="Taji Fanisi Logo" sx={{ width: 48, height: 48 }} />
+            <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
               TFDN
             </Typography>
           </Box>
 
           {isMobile ? (
             <IconButton
-              color="inherit"
+              color="primary"
               aria-label="open drawer"
-              edge="start"
+              edge="end"
               onClick={handleDrawerToggle}
             >
               <MenuIcon />
@@ -138,14 +105,9 @@ export const Header: React.FC = () => {
                   key={item.path}
                   component={Link}
                   to={item.path}
-                  sx={{
-                    color: location.pathname === item.path ? 'primary.main' : 'text.primary',
-                    fontWeight: location.pathname === item.path ? 600 : 400,
-                    '&:hover': {
-                      backgroundColor: 'primary.light',
-                      color: 'white',
-                    },
-                  }}
+                  variant={location.pathname === item.path ? 'contained' : 'text'}
+                  color={location.pathname === item.path ? 'secondary' : 'primary'}
+                  disableElevation
                 >
                   {item.label}
                 </Button>
@@ -160,6 +122,7 @@ export const Header: React.FC = () => {
 
       <Drawer
         variant="temporary"
+        anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{

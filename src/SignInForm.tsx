@@ -2,6 +2,7 @@
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Box, TextField, Button, Typography, Divider } from "@mui/material";
 
 export function SignInForm() {
   const { signIn } = useAuthActions();
@@ -9,9 +10,10 @@ export function SignInForm() {
   const [submitting, setSubmitting] = useState(false);
 
   return (
-    <div className="w-full">
-      <form
-        className="flex flex-col gap-form-field"
+    <Box sx={{ width: '100%' }}>
+      <Box
+        component="form"
+        sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
         onSubmit={(e) => {
           e.preventDefault();
           setSubmitting(true);
@@ -32,46 +34,22 @@ export function SignInForm() {
           });
         }}
       >
-        <input
-          className="auth-input-field"
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          className="auth-input-field"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <button className="auth-button" type="submit" disabled={submitting}>
-          {flow === "signIn" ? "Sign in" : "Sign up"}
-        </button>
-        <div className="text-center text-sm text-secondary">
-          <span>
-            {flow === "signIn"
-              ? "Don't have an account? "
-              : "Already have an account? "}
-          </span>
-          <button
-            type="button"
-            className="text-primary hover:text-primary-hover hover:underline font-medium cursor-pointer"
-            onClick={() => setFlow(flow === "signIn" ? "signUp" : "signIn")}
-          >
-            {flow === "signIn" ? "Sign up instead" : "Sign in instead"}
-          </button>
-        </div>
-      </form>
-      <div className="flex items-center justify-center my-3">
-        <hr className="my-4 grow border-gray-200" />
-        <span className="mx-4 text-secondary">or</span>
-        <hr className="my-4 grow border-gray-200" />
-      </div>
-      <button className="auth-button" onClick={() => void signIn("anonymous")}>
-        Sign in anonymously
-      </button>
-    </div>
+        <TextField type="email" name="email" label="Email" variant="outlined" required />
+        <TextField type="password" name="password" label="Password" variant="outlined" required />
+        <Button variant="contained" color="secondary" type="submit" disabled={submitting} sx={{ py: 1.5 }}>
+          {flow === "signIn" ? "Sign In" : "Sign Up"}
+        </Button>
+        <Typography variant="body2" sx={{ textAlign: 'center' }}>
+          {flow === "signIn" ? "Don't have an account? " : "Already have an account? "}
+          <Button variant="text" size="small" onClick={() => setFlow(flow === "signIn" ? "signUp" : "signIn")}>
+            {flow === "signIn" ? "Sign Up" : "Sign In"}
+          </Button>
+        </Typography>
+      </Box>
+      <Divider sx={{ my: 2 }}>OR</Divider>
+      <Button variant="outlined" fullWidth onClick={() => void signIn("anonymous")}>
+        Sign In Anonymously
+      </Button>
+    </Box>
   );
 }

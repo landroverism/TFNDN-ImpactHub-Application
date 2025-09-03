@@ -46,6 +46,13 @@ export interface CareerRecommendation {
   opportunity: Opportunity;
 }
 
+export interface Partner {
+  id: string;
+  name: string;
+  logoUrl: string;
+  description: string;
+}
+
 export interface QuizAnswer {
   questionId: string;
   optionId: string;

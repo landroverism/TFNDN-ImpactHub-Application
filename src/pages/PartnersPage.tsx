@@ -7,16 +7,13 @@ import {
   Card,
   CardContent,
   Avatar,
+  CircularProgress,
+  Button,
+  alpha,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { api } from '../lib/api';
-
-interface Partner {
-  id: string;
-  name: string;
-  logoUrl: string;
-  description: string;
-}
+import { api, Partner } from '../lib/api';
+import { Handshake } from '@mui/icons-material';
 
 export const PartnersPage: React.FC = () => {
   const [partners, setPartners] = useState<Partner[]>([]);
@@ -38,68 +35,46 @@ export const PartnersPage: React.FC = () => {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 8, textAlign: 'center' }}>
-        <Typography variant="h4">Loading Partners...</Typography>
+      <Container sx={{ py: 8, display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress />
       </Container>
     );
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
             Our Partners
           </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
+          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 700, mx: 'auto' }}>
             Working together with leading organizations to create sustainable impact across Africa.
           </Typography>
         </Box>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}>
         <Grid container spacing={4}>
           {partners.map((partner, index) => (
             <Grid item xs={12} sm={6} md={3} key={partner.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <Card
-                  sx={{
-                    height: '100%',
-                    textAlign: 'center',
-                    p: 3,
-                    '&:hover': {
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
-                    },
-                  }}
-                >
+              <motion.div whileHover={{ y: -8, scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <Card sx={{ height: '100%', textAlign: 'center', p: 2 }}>
                   <CardContent>
                     <Avatar
+                      src={partner.logoUrl}
+                      alt={`${partner.name} logo`}
                       sx={{
-                        width: 80,
-                        height: 80,
-                        mx: 'auto',
-                        mb: 2,
-                        backgroundColor: 'grey.100',
+                        width: 80, height: 80, mx: 'auto', mb: 2,
+                        bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
+                        color: 'primary.main',
+                        fontSize: '2rem',
+                        img: { objectFit: 'contain', p: 1 }
                       }}
                     >
-                      <Typography variant="h4" sx={{ color: 'primary.main' }}>
-                        {partner.name.charAt(0)}
-                      </Typography>
+                      {partner.name.charAt(0)}
                     </Avatar>
-                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                       {partner.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -113,25 +88,29 @@ export const PartnersPage: React.FC = () => {
         </Grid>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <Box sx={{ mt: 8, textAlign: 'center' }}>
-          <Card sx={{ p: 4, backgroundColor: 'primary.light', color: 'white' }}>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}>
+        <Box sx={{ mt: { xs: 6, md: 8 } }}>
+          <Card sx={{ p: { xs: 3, md: 5 }, bgcolor: 'primary.main', color: 'primary.contrastText', textAlign: 'center' }}>
             <CardContent>
               <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold' }}>
                 Partner With Us
               </Typography>
-              <Typography variant="h6" sx={{ mb: 3, opacity: 0.9 }}>
-                Join our network of organizations creating positive change across Africa
+              <Typography sx={{ my: 2, maxWidth: 600, mx: 'auto', opacity: 0.9 }}>
+                We are always looking for strategic partners who share our vision. Together, we can create lasting impact at scale.
               </Typography>
-              <Typography variant="body1" sx={{ maxWidth: 600, mx: 'auto', opacity: 0.9 }}>
-                We're always looking for strategic partners who share our vision of transforming 
-                lives through education, career development, and social innovation. Together, 
-                we can create lasting impact at scale.
-              </Typography>
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<Handshake />}
+                sx={{
+                  mt: 2,
+                  bgcolor: 'white',
+                  color: 'black',
+                  '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                }}
+              >
+                Become a Partner
+              </Button>
             </CardContent>
           </Card>
         </Box>

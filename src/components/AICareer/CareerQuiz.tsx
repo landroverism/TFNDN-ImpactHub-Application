@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import {
   Box,
   Typography,
-  Card,
   CardContent,
-  Button,
   Radio,
   RadioGroup,
   FormControlLabel,
   FormControl,
   LinearProgress,
-  Alert,
+  CircularProgress,
+  alpha,
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { QuizAnswer, CareerRecommendation } from '../../lib/api';
 import mockData from '../../data/mock.json';
+import { AppCard } from '../ui/AppCard';
+import { AppButton } from '../ui/AppButton';
 
 interface CareerQuizProps {
   onComplete: (recommendations: CareerRecommendation[]) => void;
@@ -34,7 +35,7 @@ export const CareerQuiz: React.FC<CareerQuizProps> = ({ onComplete }) => {
 
     const newAnswers = [
       ...answers,
-      { questionId: questions[currentQuestion].id, optionId: selectedOption }
+      { questionId: questions[currentQuestion].id, optionId: selectedOption },
     ];
     setAnswers(newAnswers);
     setSelectedOption('');
@@ -42,16 +43,13 @@ export const CareerQuiz: React.FC<CareerQuizProps> = ({ onComplete }) => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Quiz complete - process results
       handleQuizComplete(newAnswers);
     }
   };
 
   const handleQuizComplete = async (finalAnswers: QuizAnswer[]) => {
     setIsLoading(true);
-    
     try {
-      // Simulate API call to assess career fit
       const { api } = await import('../../lib/api');
       const recommendations = await api.assessCareer(finalAnswers);
       onComplete(recommendations);
@@ -64,41 +62,37 @@ export const CareerQuiz: React.FC<CareerQuizProps> = ({ onComplete }) => {
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-      setAnswers(answers.slice(0, -1));
-      // Set the previous answer as selected
-      const prevAnswer = answers[currentQuestion - 1];
+      const prevQuestionIndex = currentQuestion - 1;
+      setCurrentQuestion(prevQuestionIndex);
+      const prevAnswer = answers[prevQuestionIndex];
       if (prevAnswer) {
         setSelectedOption(prevAnswer.optionId);
       }
+      setAnswers(answers.slice(0, -1));
     }
   };
 
   if (isLoading) {
     return (
-      <Card sx={{ maxWidth: 600, mx: 'auto' }}>
-        <CardContent sx={{ p: 4, textAlign: 'center' }}>
-          <Typography variant="h5" gutterBottom>
+      <AppCard sx={{ p: 4, textAlign: 'center' }}>
+        <CardContent>
+          <CircularProgress color="primary" sx={{ mb: 3 }} />
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
             Analyzing Your Responses...
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            Our AI is processing your answers to find the best career matches for you.
-          </Typography>
-          <LinearProgress sx={{ mb: 2 }} />
-          <Typography variant="body2" color="text.secondary">
-            This may take a few moments
+          <Typography variant="body1" color="text.secondary">
+            Our AI is finding the best career matches for you.
           </Typography>
         </CardContent>
-      </Card>
+      </AppCard>
     );
   }
 
   const currentQ = questions[currentQuestion];
 
   return (
-    <Card sx={{ maxWidth: 600, mx: 'auto' }}>
-      <CardContent sx={{ p: 4 }}>
-        {/* Progress bar */}
+    <AppCard>
+      <CardContent sx={{ p: { xs: 2, md: 4 } }}>
         <Box sx={{ mb: 3 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
             <Typography variant="body2" color="text.secondary">
@@ -108,79 +102,57 @@ export const CareerQuiz: React.FC<CareerQuizProps> = ({ onComplete }) => {
               {Math.round(progress)}% Complete
             </Typography>
           </Box>
-          <LinearProgress variant="determinate" value={progress} sx={{ height: 8, borderRadius: 4 }} />
+          <LinearProgress variant="determinate" value={progress} color="primary" sx={{ height: 8, borderRadius: 4 }} />
         </Box>
-
-        <Alert severity="info" sx={{ mb: 3 }}>
-          This is a demo assessment. In production, this would use advanced AI algorithms for more accurate career matching.
-        </Alert>
 
         <AnimatePresence mode="wait">
           <motion.div
             key={currentQuestion}
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.3 }}
           >
-            <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 600 }}>
+            <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', minHeight: { md: '100px' } }}>
               {currentQ.question}
             </Typography>
 
             <FormControl component="fieldset" sx={{ width: '100%', mt: 3 }}>
-              <RadioGroup
-                value={selectedOption}
-                onChange={(e) => setSelectedOption(e.target.value)}
-              >
+              <RadioGroup value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
                 {currentQ.options.map((option) => (
-                  <motion.div
+                  <FormControlLabel
                     key={option.id}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <FormControlLabel
-                      value={option.id}
-                      control={<Radio />}
-                      label={option.text}
-                      sx={{
-                        width: '100%',
-                        m: 0,
-                        p: 2,
-                        border: '1px solid',
-                        borderColor: selectedOption === option.id ? 'primary.main' : 'grey.300',
-                        borderRadius: 2,
-                        mb: 1,
-                        backgroundColor: selectedOption === option.id ? 'primary.light' : 'transparent',
-                        '&:hover': {
-                          backgroundColor: 'grey.50',
-                        },
-                      }}
-                    />
-                  </motion.div>
+                    value={option.id}
+                    control={<Radio color="primary" />}
+                    label={option.text}
+                    sx={{
+                      m: 0, mb: 1, width: '100%',
+                      p: 1.5,
+                      border: '1px solid',
+                      borderRadius: 2,
+                      borderColor: (theme) => selectedOption === option.id ? theme.palette.primary.main : theme.palette.divider,
+                      bgcolor: (theme) => selectedOption === option.id ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                      transition: 'border-color 0.2s, background-color 0.2s',
+                      '&:hover': {
+                        bgcolor: (theme) => alpha(theme.palette.primary.main, 0.05),
+                      },
+                    }}
+                  />
                 ))}
               </RadioGroup>
             </FormControl>
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation buttons */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
-          <Button
-            variant="outlined"
-            onClick={handlePrevious}
-            disabled={currentQuestion === 0}
-          >
+          <AppButton variant="secondary" onClick={handlePrevious} disabled={currentQuestion === 0}>
             Previous
-          </Button>
-          <Button
-            variant="contained"
-            onClick={handleNext}
-            disabled={!selectedOption}
-          >
-            {currentQuestion === questions.length - 1 ? 'Get Results' : 'Next'}
-          </Button>
+          </AppButton>
+          <AppButton variant="primary" onClick={handleNext} disabled={!selectedOption}>
+            {currentQuestion === questions.length - 1 ? 'Finish & Get Results' : 'Next'}
+          </AppButton>
         </Box>
       </CardContent>
-    </Card>
+    </AppCard>
   );
-};
+}

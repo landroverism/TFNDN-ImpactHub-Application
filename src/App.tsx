@@ -6,7 +6,7 @@ import { ConvexAuthProvider } from '@convex-dev/auth/react';
 import { ConvexReactClient } from 'convex/react';
 import { Toaster } from 'sonner';
 
-import { theme } from './lib/theme';
+import theme from './lib/theme';
 import { Header } from './components/Layout/Header';
 import { Footer } from './components/Layout/Footer';
 

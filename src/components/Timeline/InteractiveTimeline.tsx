@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Typography, Card, CardContent, Chip, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, CardContent, useTheme, useMediaQuery, Divider } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TimelineEvent } from '../../lib/api';
+import { AppCard } from '../ui/AppCard';
 
 interface InteractiveTimelineProps {
   timeline: TimelineEvent[];
 }
 
 export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ timeline }) => {
-  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number | null>(timeline.length > 0 ? timeline[0].year : null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -16,27 +17,24 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ timeli
 
   return (
     <Box sx={{ py: 4 }}>
-      <Typography variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', mb: 4 }}>
-        Strategic Timeline 2025-2030
+      <Typography variant="h4" component="h2" gutterBottom sx={{ textAlign: 'center', mb: 4, fontWeight: 'bold' }}>
+        Strategic Timeline
       </Typography>
-      
-      {/* Timeline visualization */}
-      <Box sx={{ position: 'relative', mb: 4 }}>
-        {/* Timeline line */}
+
+      <Box sx={{ position: 'relative', mb: 6, px: { xs: 2, md: 4 } }}>
         <Box
           sx={{
             position: 'absolute',
-            top: '50%',
-            left: 0,
-            right: 0,
-            height: 2,
-            backgroundColor: 'primary.light',
-            transform: 'translateY(-50%)',
+            top: '20px',
+            left: { xs: '20px', md: '5%' },
+            right: { xs: 'auto', md: '5%' },
+            width: { xs: '2px', md: '90%' },
+            height: { xs: 'calc(100% - 40px)', md: '2px' },
+            backgroundColor: 'divider',
             zIndex: 1,
           }}
         />
-        
-        {/* Timeline points */}
+
         <Box
           sx={{
             display: 'flex',
@@ -44,7 +42,7 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ timeli
             position: 'relative',
             zIndex: 2,
             flexDirection: isMobile ? 'column' : 'row',
-            gap: isMobile ? 2 : 0,
+            gap: isMobile ? 4 : 0,
           }}
         >
           {timeline.map((event, index) => (
@@ -55,43 +53,35 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ timeli
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  position: 'relative',
-                }}
+                sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer' }}
                 onClick={() => setSelectedYear(selectedYear === event.year ? null : event.year)}
               >
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <motion.div whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.9 }}>
                   <Box
                     sx={{
                       width: 40,
                       height: 40,
                       borderRadius: '50%',
-                      backgroundColor: selectedYear === event.year ? 'secondary.main' : 'primary.main',
+                      border: `2px solid ${selectedYear === event.year ? theme.palette.primary.main : theme.palette.divider}`,
+                      backgroundColor: selectedYear === event.year ? 'primary.main' : 'background.paper',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'white',
+                      color: selectedYear === event.year ? 'white' : 'text.primary',
                       fontWeight: 'bold',
-                      boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                      transition: 'all 0.3s ease',
+                      boxShadow: theme.shadows[2],
+                      transition: 'all 0.3s ease-in-out',
                     }}
                   >
-                    {event.year}
+                    {event.year.toString().slice(-2)}
                   </Box>
                 </motion.div>
                 <Typography
-                  variant="body2"
+                  variant="caption"
                   sx={{
                     mt: 1,
-                    fontWeight: selectedYear === event.year ? 600 : 400,
-                    color: selectedYear === event.year ? 'secondary.main' : 'text.primary',
+                    fontWeight: selectedYear === event.year ? 'bold' : 'regular',
+                    color: selectedYear === event.year ? 'primary.main' : 'text.secondary',
                   }}
                 >
                   {event.year}
@@ -102,7 +92,6 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ timeli
         </Box>
       </Box>
 
-      {/* Event details */}
       <AnimatePresence mode="wait">
         {selectedEvent && (
           <motion.div
@@ -110,54 +99,43 @@ export const InteractiveTimeline: React.FC<InteractiveTimelineProps> = ({ timeli
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
-            <Card sx={{ mt: 3, backgroundColor: 'background.paper' }}>
+            <AppCard sx={{ mt: 3, borderLeft: (theme) => `5px solid ${theme.palette.primary.main}` }}>
               <CardContent sx={{ p: 3 }}>
-                <Typography variant="h5" gutterBottom sx={{ color: 'primary.main', fontWeight: 600 }}>
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
                   {selectedEvent.year} Milestones
                 </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
                   {selectedEvent.events.map((event, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      transition={{ duration: 0.4, delay: index * 0.15 }}
                     >
-                      <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                        <Chip
-                          label={index + 1}
-                          size="small"
-                          sx={{
-                            backgroundColor: 'secondary.main',
-                            color: 'white',
-                            fontWeight: 'bold',
-                            minWidth: 24,
-                          }}
-                        />
-                        <Box>
-                          <Typography variant="h6" sx={{ fontWeight: 600, mb: 0.5 }}>
-                            {event.title}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {event.desc}
-                          </Typography>
-                        </Box>
+                      <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                          {event.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {event.desc}
+                        </Typography>
+                        {index < selectedEvent.events.length - 1 && <Divider sx={{ my: 2 }} />}
                       </Box>
                     </motion.div>
                   ))}
                 </Box>
               </CardContent>
-            </Card>
+            </AppCard>
           </motion.div>
         )}
       </AnimatePresence>
-      
+
       {!selectedYear && (
-        <Box sx={{ textAlign: 'center', mt: 3 }}>
+        <Box sx={{ textAlign: 'center', mt: 4, p: 3, bgcolor: 'background.paper', borderRadius: 2 }}>
           <Typography variant="body1" color="text.secondary">
-            Click on any year to explore milestones and goals
+            Click on a year to explore key milestones and initiatives.
           </Typography>
         </Box>
       )}
