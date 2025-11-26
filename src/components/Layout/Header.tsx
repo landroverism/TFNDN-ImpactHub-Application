@@ -48,11 +48,11 @@ export const Header: React.FC = () => {
           <Typography 
             variant="h6" 
             sx={{ 
-              color: 'white',
+              color: '#1e3a8a',
               fontWeight: 'bold',
               fontFamily: '"Dancing Script", cursive',
               fontSize: '2rem',
-              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              textShadow: '2px 2px 4px rgba(30, 58, 138, 0.1)',
               letterSpacing: '1px',
             }}
           >
@@ -84,12 +84,12 @@ export const Header: React.FC = () => {
       <AppBar 
         position="sticky" 
         sx={{ 
-          backgroundColor: '#000000',
+          backgroundColor: '#ffffff',
           backdropFilter: 'blur(10px)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.8)',
-          color: 'white',
-          borderBottom: '2px solid',
-          borderImage: 'linear-gradient(90deg, #dc2626, #fcd34d, #16a34a) 1',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+          color: '#1e3a8a',
+          borderBottom: '3px solid',
+          borderImage: 'linear-gradient(90deg, #1e3a8a, #dc2626, #16a34a) 1',
         }}
       >
         <Toolbar 
@@ -112,18 +112,18 @@ export const Header: React.FC = () => {
               component={Link} 
               to="/"
               sx={{ 
-                color: 'white',
+                color: '#1e3a8a',
                 fontWeight: 'bold',
                 textDecoration: 'none',
                 fontSize: '2.5rem',
                 fontFamily: '"Dancing Script", cursive',
-                textShadow: '0 0 20px rgba(252, 211, 77, 0.5)',
+                textShadow: '2px 2px 4px rgba(30, 58, 138, 0.1)',
                 letterSpacing: '1px',
                 '&:hover': {
                   transform: 'scale(1.05)',
                   transition: 'transform 0.2s ease-in-out',
-                  color: '#fcd34d',
-                  textShadow: '0 0 30px rgba(252, 211, 77, 0.8)',
+                  color: '#dc2626',
+                  textShadow: '2px 2px 8px rgba(220, 38, 38, 0.3)',
                 }
               }}
             >
@@ -133,7 +133,7 @@ export const Header: React.FC = () => {
 
           {isMobile ? (
             <IconButton
-              sx={{ color: 'white' }}
+              sx={{ color: '#1e3a8a' }}
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
@@ -148,7 +148,7 @@ export const Header: React.FC = () => {
                   component={Link}
                   to={item.path}
                   sx={{
-                    color: location.pathname === item.path ? '#fcd34d' : 'white',
+                    color: location.pathname === item.path ? '#dc2626' : '#1e3a8a',
                     fontWeight: 600,
                     fontSize: '0.95rem',
                     px: 2.5,
@@ -165,16 +165,16 @@ export const Header: React.FC = () => {
                       left: 0,
                       width: '100%',
                       height: '3px',
-                      background: 'linear-gradient(90deg, #dc2626, #fcd34d, #16a34a)',
+                      background: 'linear-gradient(90deg, #1e3a8a, #dc2626, #16a34a)',
                       transform: location.pathname === item.path ? 'scaleX(1)' : 'scaleX(0)',
                       transformOrigin: 'left',
                       transition: 'transform 0.3s ease',
                     },
                     '&:hover': {
-                      backgroundColor: 'rgba(252, 211, 77, 0.1)',
-                      color: '#fcd34d',
+                      backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                      color: '#dc2626',
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 15px rgba(252, 211, 77, 0.3)',
+                      boxShadow: '0 4px 15px rgba(220, 38, 38, 0.2)',
                       '&::before': {
                         transform: 'scaleX(1)',
                       },
