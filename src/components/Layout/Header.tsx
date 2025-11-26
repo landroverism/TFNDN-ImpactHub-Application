@@ -16,8 +16,6 @@ import {
 } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
-import { Authenticated, Unauthenticated } from 'convex/react';
-import { SignOutButton } from '../../SignOutButton';
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -41,20 +39,20 @@ export const Header: React.FC = () => {
   const drawer = (
     <Box sx={{ width: 250 }} role="presentation">
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           <Avatar 
-            src="/images/zoomed-logo.png" 
+            src="/images/zoomed-rg.png" 
             alt="Taji Fanisi Development Network Logo" 
-            sx={{ width: 48, height: 48 }}
+            sx={{ width: 70, height: 70 }}
           />
           <Typography 
             variant="h6" 
             sx={{ 
-              color: '#22C55E',
+              color: 'white',
               fontWeight: 'bold',
               fontFamily: '"Dancing Script", cursive',
-              fontSize: '1.8rem',
-              textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+              fontSize: '2rem',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               letterSpacing: '1px',
             }}
           >
@@ -86,35 +84,46 @@ export const Header: React.FC = () => {
       <AppBar 
         position="sticky" 
         sx={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backgroundColor: '#000000',
           backdropFilter: 'blur(10px)',
-          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)',
-          color: 'text.primary',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.8)',
+          color: 'white',
+          borderBottom: '2px solid',
+          borderImage: 'linear-gradient(90deg, #dc2626, #fcd34d, #16a34a) 1',
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar 
+          sx={{ 
+            justifyContent: 'space-between',
+            maxWidth: '100%',
+            width: '100%',
+            px: { xs: 2, md: 4 },
+            py: 1.5,
+          }}
+        >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Avatar 
-              src="/images/zoomed-logo.png" 
+              src="/images/zoomed-rg.png" 
               alt="Taji Fanisi Development Network Logo" 
-              sx={{ width: 56, height: 56 }}
+              sx={{ width: 80, height: 80 }}
             />
             <Typography 
               variant="h6" 
               component={Link} 
               to="/"
               sx={{ 
-                color: '#22C55E',
+                color: 'white',
                 fontWeight: 'bold',
                 textDecoration: 'none',
-                fontSize: '2.2rem',
+                fontSize: '2.5rem',
                 fontFamily: '"Dancing Script", cursive',
-                textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                textShadow: '0 0 20px rgba(252, 211, 77, 0.5)',
                 letterSpacing: '1px',
                 '&:hover': {
                   transform: 'scale(1.05)',
                   transition: 'transform 0.2s ease-in-out',
-                  color: '#16A34A',
+                  color: '#fcd34d',
+                  textShadow: '0 0 30px rgba(252, 211, 77, 0.8)',
                 }
               }}
             >
@@ -124,7 +133,7 @@ export const Header: React.FC = () => {
 
           {isMobile ? (
             <IconButton
-              color="inherit"
+              sx={{ color: 'white' }}
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
@@ -132,27 +141,52 @@ export const Header: React.FC = () => {
               <MenuIcon />
             </IconButton>
           ) : (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               {navItems.map((item) => (
                 <Button
                   key={item.path}
                   component={Link}
                   to={item.path}
                   sx={{
-                    color: location.pathname === item.path ? 'primary.main' : 'text.primary',
-                    fontWeight: location.pathname === item.path ? 600 : 400,
+                    color: location.pathname === item.path ? '#fcd34d' : 'white',
+                    fontWeight: 600,
+                    fontSize: '0.95rem',
+                    px: 2.5,
+                    py: 1,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '3px',
+                      background: 'linear-gradient(90deg, #dc2626, #fcd34d, #16a34a)',
+                      transform: location.pathname === item.path ? 'scaleX(1)' : 'scaleX(0)',
+                      transformOrigin: 'left',
+                      transition: 'transform 0.3s ease',
+                    },
                     '&:hover': {
-                      backgroundColor: 'primary.light',
-                      color: 'white',
+                      backgroundColor: 'rgba(252, 211, 77, 0.1)',
+                      color: '#fcd34d',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 15px rgba(252, 211, 77, 0.3)',
+                      '&::before': {
+                        transform: 'scaleX(1)',
+                      },
+                    },
+                    '&:active': {
+                      transform: 'translateY(0)',
                     },
                   }}
                 >
                   {item.label}
                 </Button>
               ))}
-              <Authenticated>
-                <SignOutButton />
-              </Authenticated>
             </Box>
           )}
         </Toolbar>

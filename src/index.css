@@ -5,7 +5,7 @@
 /* Handwriting font styles */
 .handwriting-title {
   font-family: 'Dancing Script', cursive;
-  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -45,10 +45,10 @@ body {
 
 /* only use this to update the style of the auth input fields. use a different class for all other input fields */
 .auth-input-field {
-  @apply w-full px-4 py-3 rounded-container bg-white border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow shadow-sm hover:shadow;
+  @apply w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow shadow-sm hover:shadow;
 }
 
 /* only use this to update the style of the auth buttons. use the button class for all other buttons */
 .auth-button {
-  @apply w-full px-4 py-3 rounded bg-primary text-white font-semibold hover:bg-primary-hover transition-colors shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply w-full px-4 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-dark transition-colors shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed;
 }

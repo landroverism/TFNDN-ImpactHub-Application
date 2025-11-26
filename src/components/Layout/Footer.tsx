@@ -7,10 +7,12 @@ export const Footer: React.FC = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: 'primary.main',
+        backgroundColor: '#000000',
         color: 'white',
         py: 6,
         mt: 'auto',
+        borderTop: '2px solid',
+        borderImage: 'linear-gradient(90deg, #dc2626, #fcd34d, #16a34a) 1',
       }}
     >
       <Container maxWidth="lg">
@@ -18,9 +20,9 @@ export const Footer: React.FC = () => {
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
               <Avatar 
-                src="/images/zoomed-logo.png" 
+                src="/images/zoomed-rg.png" 
                 alt="Taji Fanisi Development Network Logo" 
-                sx={{ width: 64, height: 64 }}
+                sx={{ width: 80, height: 80 }}
               />
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                 Taji Fanisi Development Network
@@ -104,9 +106,9 @@ export const Footer: React.FC = () => {
         <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.2)', mt: 4, pt: 3, textAlign: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
             <Avatar 
-              src="/images/zoomed-logo.png" 
+              src="/images/zoomed-rg.png" 
               alt="Taji Fanisi Development Network Logo" 
-              sx={{ width: 40, height: 40 }}
+              sx={{ width: 50, height: 50 }}
             />
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
               © 2024 Taji Fanisi Development Network. All rights reserved.

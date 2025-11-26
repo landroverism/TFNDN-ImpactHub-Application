@@ -2,13 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Box } from '@mui/material';
-import { ConvexAuthProvider } from '@convex-dev/auth/react';
-import { ConvexReactClient } from 'convex/react';
 import { Toaster } from 'sonner';
 
 import { theme } from './lib/theme';
 import { Header } from './components/Layout/Header';
 import { Footer } from './components/Layout/Footer';
+import { ErrorBoundary, NotFound } from './components/common/ErrorBoundary';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -19,13 +18,11 @@ import { PillarDetailPage } from './pages/PillarDetailPage';
 import { PartnersPage } from './pages/PartnersPage';
 import { GetInvolvedPage } from './pages/GetInvolvedPage';
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
-
 export default function App() {
   return (
-    <ConvexAuthProvider client={convex}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ErrorBoundary>
         <Router>
           <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
@@ -38,13 +35,21 @@ export default function App() {
                 <Route path="/partners" element={<PartnersPage />} />
                 <Route path="/get-involved" element={<GetInvolvedPage />} />
                 <Route path="/pillars/:id" element={<PillarDetailPage />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Box>
             <Footer />
           </Box>
         </Router>
-        <Toaster />
-      </ThemeProvider>
-    </ConvexAuthProvider>
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            style: {
+              borderRadius: '8px',
+            },
+          }}
+        />
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 }
